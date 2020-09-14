@@ -39,3 +39,29 @@
 
 
 ## --- Criando a aplicação
+
+## Criando rotas
+
+### `yarn add react-router-dom`
+
+### `Criar diretório pages dentro de src`
+
+### `Criar componente Dashboard`
+
+### `Criar componente Tarefas`
+
+### `Criar diretório routes dentro de src`
+
+### `Importar Dashboard e Tarefas dentro de routes/index.js`
+
+### `Atualizar App.js -> importar Routes e em seguida o BrowserRouter`
+
+### `No routes/index.js mostrar sem o switch`
+
+### `No routes/index.js incluir o exact`
+
+
+
+### `Utilizando o Styled Components`
+
+
