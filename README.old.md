@@ -1,2 +1,0 @@
-# example-todo
-React
