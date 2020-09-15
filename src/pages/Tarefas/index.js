@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom';
 import { FiCircle, FiCheckCircle, FiDelete } from 'react-icons/fi';
 import api from '../../services/api';
@@ -18,61 +18,117 @@ const Tarefas = () => {
   const [newTask, setNewTask] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const loadTasks = useCallback(
+    async () => {
+      const response = await api.get(`tarefas`);
+      setTasks(response.data);
+    },[],
+  );
+
+  // async function loadTasks() {
+  //   const response = await api.get(`tarefas`);
+  //   setTasks(response.data);
+
+  //   console.log("tasks loaded:", response.data);
+  // }
+
   useEffect(() => {
     loadTasks();
-  }, []);
+  }, [loadTasks]);
 
-  async function loadTasks() {
-    const response = await api.get(`tarefas`);
-    setTasks(response.data);
+  const handleAddTask = useCallback(
+    async (event) => {
+      event.preventDefault();
 
-    console.log("tasks loaded:", response.data);
-  }
+      if(newTask === "") {
+        setErrorMessage("Digite a tarefa a ser adicionada");
+        return;
+      }
 
-  async function handleAddTask(event) {
-    event.preventDefault();
+      setErrorMessage("");
 
-    if(newTask === "") {
-      setErrorMessage("Digite a tarefa a ser adicionada");
-      return;
-    }
+      const params = {
+        descricao: newTask,
+        concluido: false
+      };
 
-    setErrorMessage("");
+      try {
+        await api.post(`tarefas`, params);  
+        
+        loadTasks();
+        setNewTask("");
+      } catch (error) {
+        console.log("error handleAddTask:", error);
 
-    const params = {
-      descricao: newTask,
-      concluido: false
-    };
+        setErrorMessage("Ocorreu um erro ao adicionar tarefa");
+      }
+    },[loadTasks, newTask],
+  );
 
-    try {
-      await api.post(`tarefas`, params);  
+  // async function handleAddTask(event) {
+  //   event.preventDefault();
+
+  //   if(newTask === "") {
+  //     setErrorMessage("Digite a tarefa a ser adicionada");
+  //     return;
+  //   }
+
+  //   setErrorMessage("");
+
+  //   const params = {
+  //     descricao: newTask,
+  //     concluido: false
+  //   };
+
+  //   try {
+  //     await api.post(`tarefas`, params);  
       
+  //     loadTasks();
+  //     setNewTask("");
+  //   } catch (error) {
+  //     console.log("error handleAddTask:", error);
+
+  //     setErrorMessage("Ocorreu um erro ao adicionar tarefa");
+  //   }
+  // }
+
+  const handleTask = useCallback(
+    async (task) => {
+      const params = {
+        ...task,
+        concluido: !task.concluido
+      }
+  
+      await api.put(`tarefas/${task.id}`, params);
+  
       loadTasks();
-      setNewTask("");
-    } catch (error) {
-      console.log("error handleAddTask:", error);
+    },[loadTasks],
+  );
 
-      setErrorMessage("Ocorreu um erro ao adicionar tarefa");
-    }
-    
-  }
+  // async function handleTask(task) {
+  //   const params = {
+  //     ...task,
+  //     concluido: !task.concluido
+  //   }
 
-  async function handleTask(task) {
-    const params = {
-      ...task,
-      concluido: !task.concluido
-    }
+  //   await api.put(`tarefas/${task.id}`, params);
 
-    await api.put(`tarefas/${task.id}`, params);
+  //   loadTasks();
+  // }
 
-    loadTasks();
-  }
+  const removeTask = useCallback(
+    async (task) => {
+      await api.delete(`tarefas/${task.id}`);
 
-  async function removeTask(task) {
-    await api.delete(`tarefas/${task.id}`);
+      loadTasks();
+    },[loadTasks],
+  );
 
-    loadTasks();
-  }
+  // async function removeTask(task) {
+  //   await api.delete(`tarefas/${task.id}`);
+
+  //   loadTasks();
+  // }
 
   return (
     <>
