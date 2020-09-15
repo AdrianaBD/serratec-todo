@@ -1,8 +1,15 @@
 import React from 'react'
 
+import logoImg from '../../assets/logo.png';
+
+import { Title } from './styles';
+
 const Tarefas = () => {
   return (
-    <h1>Tarefas</h1>
+    <>
+      <img src={logoImg} alt="Lista de Tarefas" />
+      <Title>Tarefas</Title>
+    </>
   )
 }
 
