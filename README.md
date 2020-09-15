@@ -22,11 +22,13 @@
 
 ### `npm install -g json-server`
 
+
 ## Startando o servidor da API
 
 ### `Criando arquivo db.json`
 
 ### `json-server --watch db.json --port 3333`
+
 
 ## Instalando o Insomnia
 
@@ -61,7 +63,22 @@
 ### `No routes/index.js incluir o exact`
 
 
+## Estilizando o App
+
+### `CSS inline`
+
+### `Importar arquivo CSS`
+
+### `Mostrar resultado no inspect e comprar divs com fragment`
 
 ### `Utilizando o Styled Components`
+
+### `apresentar -> template literals`
+
+### `benefício de usar styled components -> Não compartilha o CSS com outros componentes da aplicação`
+
+### `Criar arquivo CSS global`
+
+### `Importar arquivo CSS global no App.js`
 
 
