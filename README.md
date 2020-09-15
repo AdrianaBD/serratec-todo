@@ -89,5 +89,6 @@
 
 ## Consumir API
 
+### `Lidando com erros - try/catch`
 
-
+### `Finalizando tarefas`

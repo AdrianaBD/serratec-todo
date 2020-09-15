@@ -1,54 +1,19 @@
 {
   "tarefas": [
     {
-      "id": 1,
-      "descricao": "Aprender React",
-      "concluido": false
-    },
-    {
       "id": 2,
       "descricao": "Aprender React Native",
       "concluido": true
     },
     {
-      "descricao": "Aprender axios",
-      "concluido": false,
-      "id": 3
-    },
-    {
       "descricao": "Estudar CSS",
-      "concluido": false,
+      "concluido": true,
       "id": 4
     },
     {
       "descricao": "Estudar FlexBox",
       "concluido": false,
       "id": 5
-    },
-    {
-      "descricao": "API",
-      "concluido": false,
-      "id": 6
-    },
-    {
-      "descricao": "Polished",
-      "concluido": false,
-      "id": 7
-    },
-    {
-      "descricao": "????SCS WF WFWFWF WF WF WFW FWF WFWFWF WF WFWF WF WF WF WF WFWFFWNFWUIFUWNF WOUINFIOWNF OIWNFWOFI NFIWN OIWFNOIW FNWFIONWFI NIN FIWNIWNF IWNF IWFN IWNFOIF NIFWN IOWF NOIWFN OIFWN OIFWN",
-      "concluido": false,
-      "id": 8
-    },
-    {
-      "descricao": "Teste",
-      "concluido": false,
-      "id": 9
-    },
-    {
-      "descricao": "novo",
-      "concluido": false,
-      "id": 10
     }
   ]
 }

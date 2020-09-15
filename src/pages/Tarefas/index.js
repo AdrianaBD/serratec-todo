@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FiCircle, FiCheckCircle } from 'react-icons/fi';
+import { FiCircle, FiCheckCircle, FiDelete } from 'react-icons/fi';
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.png';
@@ -50,6 +50,23 @@ const Tarefas = () => {
     
   }
 
+  async function handleTask(task) {
+    const params = {
+      ...task,
+      concluido: !task.concluido
+    }
+
+    await api.put(`tarefas/${task.id}`, params);
+
+    loadTasks();
+  }
+
+  async function removeTask(task) {
+    await api.delete(`tarefas/${task.id}`);
+
+    loadTasks();
+  }
+
   return (
     <>
       <img src={logoImg} alt="Lista de Tarefas" />
@@ -76,9 +93,12 @@ const Tarefas = () => {
             <span>
               {
                 task.concluido ?
-                  <FiCheckCircle size={22} />
+                  <>
+                    <FiDelete size={22} onClick={() => removeTask(task) } style={{marginRight: 10}} />
+                    <FiCheckCircle size={22} onClick={() => handleTask(task) } />
+                  </>
                 :
-                  <FiCircle size={22} />
+                  <FiCircle size={22} onClick={() => handleTask(task) } />
               }
             </span>
           </div>
