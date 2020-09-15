@@ -12,7 +12,7 @@
     },
     {
       "descricao": "Estudar FlexBox",
-      "concluido": false,
+      "concluido": true,
       "id": 5
     }
   ]
