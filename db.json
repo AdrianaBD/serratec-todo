@@ -1,22 +1,19 @@
 {
-  "posts": [
+  "tarefas": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "descricao": "Aprender React",
+      "concluido": false
     },
     {
-      "id": 2
-    }
-  ],
-  "comments": [
+      "id": 2,
+      "descricao": "Aprender React Native",
+      "concluido": false
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "descricao": "Aprender axios",
+      "concluido": false,
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

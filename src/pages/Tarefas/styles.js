@@ -43,7 +43,7 @@ export const Form = styled.form`
 `;
 
 export const Tasks = styled.div`
-  margin-top: 70px;
+  margin-top: 40px;
   max-width: 700px;
 
   a {

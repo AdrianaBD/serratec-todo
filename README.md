@@ -40,7 +40,7 @@
 
 
 
-## --- Criando a aplicação
+## --- Construindo a aplicação
 
 ## Criando rotas
 
@@ -86,5 +86,8 @@
 ### `Criar Form`
 
 ### `Instalar react-icons`
+
+## Consumir API
+
 
 
