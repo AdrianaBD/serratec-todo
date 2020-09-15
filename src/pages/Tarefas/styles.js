@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 export const Title = styled.h1`
@@ -12,7 +12,7 @@ export const Form = styled.form`
   margin-top: 25px;
   max-width: 700px;
   display: flex;
-
+  
   input{
     flex: 1;
     height: 50px;
@@ -20,6 +20,8 @@ export const Form = styled.form`
     border: 0;
     border-radius: 5px 0 0 5px;
     color: #3a3a3a;
+    border: 2px solid ${props => props.hasError ? "#c53030" : "#fff"};
+    border-right: 0;
 
     &::placeholder {
       color: #a8a8b3;
@@ -46,7 +48,7 @@ export const Tasks = styled.div`
   margin-top: 40px;
   max-width: 700px;
 
-  a {
+  div {
     background: #fff;
     border-radius: 5px;
     display: block;
@@ -56,7 +58,7 @@ export const Tasks = styled.div`
     align-items: center;
     transition: transform 0.5s;
 
-    & + a {
+    & + div {
       margin-top: 16px;
     }
 
@@ -67,13 +69,22 @@ export const Tasks = styled.div`
     strong {
       font-size: 20px;
       color: #3d3d4d;
+      margin-right: 25px;
+    }
+
+    span {
+      margin-left: auto;
     }
 
     svg {
-      margin-left: auto;
       color: #cbcbd6;
+      cursor: pointer;
     }
   }
+`;
 
-
+export const ErrorMessage = styled.span`
+  display: block;
+  color: #c53030;
+  margin-top: 10px;
 `;

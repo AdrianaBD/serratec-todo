@@ -4,11 +4,12 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.png';
 
-import { Title, Form, Tasks } from './styles';
+import { Title, Form, Tasks, ErrorMessage } from './styles';
 
 const Tarefas = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     loadTasks();
@@ -24,7 +25,29 @@ const Tarefas = () => {
   async function handleAddTask(event) {
     event.preventDefault();
 
-    const response = await api.get(`tarefas`);
+    if(newTask === "") {
+      setErrorMessage("Digite a tarefa a ser adicionada");
+      return;
+    }
+
+    setErrorMessage("");
+
+    const params = {
+      descricao: newTask,
+      concluido: false
+    };
+
+    try {
+      await api.post(`tarefas`, params);  
+      
+      loadTasks();
+      setNewTask("");
+    } catch (error) {
+      console.log("error handleAddTask:", error);
+
+      setErrorMessage("Ocorreu um erro ao adicionar tarefa");
+    }
+    
   }
 
   return (
@@ -32,7 +55,7 @@ const Tarefas = () => {
       <img src={logoImg} alt="Lista de Tarefas" />
       <Title>Lista de Tarefas</Title>
 
-      <Form onSubmit={handleAddTask}>
+      <Form onSubmit={handleAddTask} hasError={!!errorMessage}>
         <input 
           value={newTask}
           onChange={e => setNewTask(e.target.value)}
@@ -42,12 +65,23 @@ const Tarefas = () => {
         <button type="submit">Criar</button>
       </Form>
 
+      {errorMessage &&
+        <ErrorMessage>{errorMessage}</ErrorMessage>
+      }
+
       <Tasks>
         { tasks.map(task => (
-          <a key={task.id} href="teste">
+          <div key={task.id}>
             <strong>{task.descricao}</strong>
-            <FiCircle size={22} />
-          </a>
+            <span>
+              {
+                task.concluido ?
+                  <FiCheckCircle size={22} />
+                :
+                  <FiCircle size={22} />
+              }
+            </span>
+          </div>
         ))}
         
       </Tasks>
