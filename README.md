@@ -92,3 +92,7 @@
 ### `Lidando com erros - try/catch`
 
 ### `Finalizando tarefas`
+
+### `Removendo tarefas`
+
+### `Criando menu e Navegando entre páginas`

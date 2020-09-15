@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { FiCircle, FiCheckCircle, FiDelete } from 'react-icons/fi';
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.png';
 
-import { Title, Form, Tasks, ErrorMessage } from './styles';
+import { Title, Form, Tasks, ErrorMessage, Header } from './styles';
 
 const Tarefas = () => {
   const [tasks, setTasks] = useState([]);
@@ -69,7 +70,23 @@ const Tarefas = () => {
 
   return (
     <>
-      <img src={logoImg} alt="Lista de Tarefas" />
+      <Header>
+        <img src={logoImg} alt="Lista de Tarefas" />
+
+        <ul>
+          <li>
+            <Link to="/">
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link to="/tarefas">
+              Tarefas
+            </Link>
+          </li>
+        </ul>
+      </Header>
+
       <Title>Lista de Tarefas</Title>
 
       <Form onSubmit={handleAddTask} hasError={!!errorMessage}>
