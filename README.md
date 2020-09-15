@@ -85,4 +85,6 @@
 
 ### `Criar Form`
 
+### `Instalar react-icons`
+
 
