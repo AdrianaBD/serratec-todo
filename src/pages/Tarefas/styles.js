@@ -1,10 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 40px;
 
   ul {
     display: flex;
@@ -28,15 +29,11 @@ export const Header = styled.div`
       }
     }
   }
-
-  
 `;
 
 export const Title = styled.h1`
   font-size: 36px;
   color: #3A3A3A;
-
-  margin-top: 40px;
 `;
 
 export const Form = styled.form`

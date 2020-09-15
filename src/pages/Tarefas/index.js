@@ -5,7 +5,13 @@ import api from '../../services/api';
 
 import logoImg from '../../assets/logo.png';
 
-import { Title, Form, Tasks, ErrorMessage, Header } from './styles';
+import { 
+  Title, 
+  Form, 
+  Tasks, 
+  ErrorMessage, 
+  Header 
+} from './styles';
 
 const Tarefas = () => {
   const [tasks, setTasks] = useState([]);

@@ -96,3 +96,7 @@
 ### `Removendo tarefas`
 
 ### `Criando menu e Navegando entre páginas`
+
+
+
+## Componentizando o Header

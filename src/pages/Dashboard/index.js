@@ -1,12 +1,14 @@
 import React from 'react';
+
+import Header from '../../components/Header';
+
 import { Title } from './styles';
 
 const Dashboard = () => {
   return (
     <>
-      <div>
-        <Title>Dashboard</Title>
-      </div>
+      <Header />
+      <Title>Dashboard</Title>
     </>
   )
 }
