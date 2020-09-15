@@ -3,7 +3,7 @@
     {
       "id": 2,
       "descricao": "Aprender React Native",
-      "concluido": true
+      "concluido": false
     },
     {
       "descricao": "Estudar CSS",

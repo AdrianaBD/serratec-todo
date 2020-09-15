@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import api from '../../services/api';
 
 import Header from '../../components/Header';
@@ -7,10 +7,6 @@ import { Title, Resumo } from './styles';
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    loadTasks();
-  }, []);
 
   const tasks_qtd = useMemo(() => tasks.length, [tasks]);
 
@@ -25,12 +21,23 @@ const Dashboard = () => {
     [tasks],
   )
 
-  async function loadTasks() {
-    const response = await api.get(`tarefas`);
-    setTasks(response.data);
+  const loadTasks = useCallback(
+    async () => {
+      const response = await api.get(`tarefas`);
+      setTasks(response.data);
+    },[],
+  );
 
-    console.log("tasks loaded:", response.data);
-  }
+  useEffect(() => {
+    loadTasks();
+  }, [loadTasks]);
+
+  // async function loadTasks() {
+  //   const response = await api.get(`tarefas`);
+  //   setTasks(response.data);
+
+  //   console.log("tasks loaded:", response.data);
+  // }
 
   return (
     <>
