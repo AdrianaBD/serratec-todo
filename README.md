@@ -106,9 +106,11 @@
 
 ## Autenticação
 
-### `instalando Yup - yarn add yup`
+### `hook`
 
-### `instalando Unform - yarn add @unform/core @unform/web`
+### `inserir login e logout na aplicação`
+
+### `rotas autenticadas`
 
 
 
