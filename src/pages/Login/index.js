@@ -1,20 +1,44 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 
 import logoImg from '../../assets/logo.png';
 
 import { Container, Content, Form } from './styles';
 
 const Login = () => {
+  const history = useHistory();
+  const { signIn } = useAuth();
+
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    if(!email) return;
+    if(!password) return;
+    
+    setLoading(true);
 
     console.log("submit", email, password);
 
-    
+    try {
+      await signIn({
+        email: email,
+        password: password,
+      });
+
+      history.push('/dashboard');  
+
+    } catch (error) {
+      console.log(error);
+      console.log("Usuário ou senha não confere.");
+
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
