@@ -10,7 +10,6 @@ export const Container = styled.div`
     display: flex;
     list-style:none;
     
-
     li {
       font-size: 14px;
 
@@ -21,6 +20,15 @@ export const Container = styled.div`
       a {
         color: #333;
         text-decoration: none;
+
+        &:hover {
+          color: #04D361;
+        }
+      }
+
+      span {
+        color: #333;
+        cursor: pointer;
 
         &:hover {
           color: #04D361;
