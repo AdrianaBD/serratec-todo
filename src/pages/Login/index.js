@@ -1,23 +1,20 @@
 import React, {useState} from 'react'
-import { Form } from '@unform/web';
-import * as Yup from 'yup';
 
 import logoImg from '../../assets/logo.png';
 
-import { Container, Content, WrapperForm } from './styles';
-
-const schema = Yup.object().shape({
-  email: Yup.string()
-    .email('Insira um email valido!')
-    .required('O email é obrigatorio'),
-  password: Yup.string().required('A senha é obrigatoria'),
-});
+import { Container, Content, Form } from './styles';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function handleSubmit({ email, password }) {
+  function handleSubmit(event) {
+    event.preventDefault();
 
+    console.log("submit", email, password);
+
+    
   }
 
   return (
@@ -25,20 +22,22 @@ const Login = () => {
       <Content>
         <img width="285px" src={logoImg} alt="Logo" />
 
-        <WrapperForm>
-          <Form schema={schema} onSubmit={handleSubmit} style={{ width: "315px" }}>
-            <input name="email" type="email" placeholder="E-mail" />
-            <input
-              name="password"
-              type="password"
-              placeholder="Senha"
-            />
-            <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
+        <Form onSubmit={handleSubmit} style={{ width: "315px" }}>
+          <input 
+            value={email} 
+            onChange={(event) => setEmail(event.target.value)} 
+            type="email" 
+            placeholder="E-mail" 
+          />
 
-            {/* <Link to="/forgot-password"><TextLink>Esqueci minha senha</TextLink></Link>
-            <Link to="/"><TextLink>Criar conta gratuita</TextLink></Link> */}
-          </Form>
-        </WrapperForm>
+          <input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            type="password"
+            placeholder="Senha"
+          />
+          <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
+        </Form>
       </Content>
     </Container>
   )

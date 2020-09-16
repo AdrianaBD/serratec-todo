@@ -10,14 +10,11 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
   margin-bottom: 80px;
 `;
 
-export const WrapperForm = styled.form`
+export const Form = styled.form`
   margin-top: 30px;
-  display: flex;
   
   input{
     flex: 1;
