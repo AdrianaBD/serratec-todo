@@ -12,6 +12,10 @@ export default createGlobalStyle`
     background: #F0F0F5;
   }
 
+  html, body, #root{
+    height: 100%;
+  }
+  
   body, input, button {
     font: 16px sans-serif;
   }

@@ -102,3 +102,13 @@
 ## Componentizando o Header
 
 ## Criando o Dashboard
+
+
+## Autenticação
+
+### `instalando Yup - yarn add yup`
+
+### `instalando Unform - yarn add @unform/core @unform/web`
+
+
+
