@@ -69,11 +69,11 @@
 
 ### `Importar arquivo CSS`
 
-### `Mostrar resultado no inspect e comprar divs com fragment`
+### `Mostrar resultado no inspect e comparar divs com fragment`
 
 ### `Utilizando o Styled Components`
 
-### `apresentar -> template literals`
+### `apresentar -> template string`
 
 ### `benefício de usar styled components -> Não compartilha o CSS com outros componentes da aplicação`
 
